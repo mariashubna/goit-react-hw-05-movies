@@ -5,22 +5,7 @@ const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const { movieId } = useParams();
 
-  useEffect(() => {
-    const fetchMovieReviews = async () => {
-      try {
-        const apiKey = '6b2f249c49a040541fc751a7fb9d7fc1';
-        const response = await fetch(
-          `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${apiKey}`
-        );
-        const data = await response.json();
-        setReviews(data.results);
-      } catch (error) {
-        console.error('Error fetching movie reviews:', error);
-      }
-    };
 
-    fetchMovieReviews();
-  }, [movieId]);
 
   return (
     <div>
