@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { searchTrendingMovies } from '../../servises/search_Api';
 
-const Credits = () => {
+export const Credits = () => {
   const [credits, setCredits] = useState([]);
   const { movieId } = useParams();
   const [error, setError] = useState('');

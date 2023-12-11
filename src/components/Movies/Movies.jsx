@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
 const Movies = ({ movies }) => {
-  const location = useLocation();
   const PICTURE_URL = 'https://image.tmdb.org/t/p/';
 
   const dateOptions = {
@@ -14,8 +12,7 @@ const Movies = ({ movies }) => {
     <ul>
       {movies.map(movie => (
         <li key={movie.id}>
-          <Link to={location.pathname === '/' ? `movies/${movie.id}` : `${movie.id}`}
-          state={{ from: location }}>
+          <Link to={`/movies/${movie.id}`}>
             <div>
             <img
               src={`${PICTURE_URL}w200${movie.poster_path}`}

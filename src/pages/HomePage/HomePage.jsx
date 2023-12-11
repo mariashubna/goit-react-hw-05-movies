@@ -28,7 +28,7 @@ const HomePage = () => {
   return (
     <div>
       <h1>Popular today:</h1>
-      {error === '' ? <Movies movies={movies} /> : <p>{error}</p>}
+      {error === '' && <Movies movies={movies} /> }
     </div>
   );
 };
