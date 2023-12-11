@@ -16,12 +16,14 @@ const Reviews = lazy(() => import('../components/Reviews/Reviews.jsx'));
 export const App = () => {
     return (
       <Routes>             
-        <Route path="/" element={<Header />} />
+        <Route path="/" element={<Header />} >
         <Route path="index" element={<HomePage />} />        
         <Route path="/movies" element={<MoviesPage />} />
-        <Route path="/movies/:movieId" element={<MovieDetailsPage />} />
-        <Route path="/movies/:movieId/cast" element={<Credits />} />
-        <Route path="/movies/:movieId/reviews" element={<Reviews />} />
+        <Route path="/movies/:movieId" element={<MovieDetailsPage />} >
+        <Route path="cast" element={<Credits />} />
+        <Route path="reviews" element={<Reviews />} />
+ </Route>
+ </Route>
         <Route path="*" element={<ErrorPage/>} />
       </Routes>
   );
