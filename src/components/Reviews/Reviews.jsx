@@ -1,9 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { searchTrendingMovies } from '../../servises/search_Api';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const { movieId } = useParams();
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    if (!movieId) {
+      return;
+    }
+    searchTrendingMovies('reviews', movieId)
+      .then(({ results }) => {
+        if (!results.length) {
+          setError('There are no reviews yet. Look later');
+          return;
+        }
+        setReviews(results);
+        setError('');
+      })
+      .catch(() =>
+        setError(
+          "I'm sorry, but something went wrong... Please, try again later"
+        )
+      );
+  }, [movieId]);
 
 
 
@@ -20,7 +42,7 @@ const Reviews = () => {
           ))}
         </ul>
       ) : (
-        <p>No reviews available for this movie.</p>
+        <p>{error}</p>
       )}
     </div>
   );
