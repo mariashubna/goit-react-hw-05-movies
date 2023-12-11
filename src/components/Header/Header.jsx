@@ -10,9 +10,7 @@ const Header = () => {
       </header>
 
       <Suspense fallback={<div>Loading...</div>}>
-        <div>
-          <Outlet />
-        </div>
+        <Outlet />        
       </Suspense>
     </div>
   );
