@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieCredits } from '../../servises/search_Api'; 
 
-export const Credits = () => {
+const Credits = () => {
   const [credits, setCredits] = useState([]);
   const { movieId } = useParams();
   const [error, setError] = useState('');
@@ -57,3 +57,5 @@ export const Credits = () => {
     </div>
   );
 };
+
+export default Credits
