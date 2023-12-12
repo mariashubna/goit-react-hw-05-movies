@@ -1,6 +1,6 @@
 import { Fragment, Suspense, useEffect, useState } from 'react';
 import { Outlet, useLocation, useNavigate, useParams,  Link, NavLink } from 'react-router-dom';
-import { searchTrendingMovies } from '../../servises/search_Api';
+import { searchMovieById } from '../../servises/search_Api';
 import { Loader } from '../../components/Loader/Loader';
 import Movies from '../../components/Movies/Movies';
 
@@ -13,7 +13,7 @@ const MovieDetailsPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    searchTrendingMovies('movieById', Number(movieId))
+    searchMovieById(Number(movieId))
       .then(results => {
         setMovieData(results);
         setError('');
@@ -26,7 +26,10 @@ const MovieDetailsPage = () => {
           navigate('/');
         }, 1000);
       });
+      
   }, [movieId, navigate]);
+
+  if(!movieData)return;
 
   return (
     <Fragment>
@@ -34,7 +37,7 @@ const MovieDetailsPage = () => {
 
       {error === '' && movieData ? (
         <>
-          <Movies movieData={movieData} />
+           <Movies movies={[movieData]} /> 
 
           <div>
             <h2>Additional information: </h2>

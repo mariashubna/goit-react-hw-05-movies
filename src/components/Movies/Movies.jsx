@@ -10,9 +10,10 @@ const Movies = ({ movies }) => {
     day: 'numeric',
   };
 
+
   return (
     <ul className={css.list}>
-      {movies.map(movie => (
+      {movies.map((movie) => (
         <li key={movie.id}>
           <Link to={`/movies/${movie.id}`} className={css.link}>
             <div>
