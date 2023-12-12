@@ -1,8 +1,10 @@
+
 .form {
     display: flex;
     justify-content: center;
     gap: 30px;
     padding-top: 50px;
+    padding-bottom: 50px;
 }
 .form input {
     width: 300px;

@@ -1,21 +1,38 @@
 import axios from 'axios';
 
-export async function searchTrendingMovies() {
-  const BASE_URL = 'https://api.themoviedb.org/3/trending/movie/day';
-  const searchParams = new URLSearchParams({
-    api_key: '6b2f249c49a040541fc751a7fb9d7fc1',
-  });
+const API_KEY = '6b2f249c49a040541fc751a7fb9d7fc1';
+const BASE_URL = 'https://api.themoviedb.org/3';
 
-  const response = await axios.get(`${BASE_URL}?${searchParams}`);
+export async function searchTrendingMovies() {
+  const endpoint = '/trending/movie/day';
+  const response = await axios.get(`${BASE_URL}${endpoint}?api_key=${API_KEY}`);
   return response.data;
 }
 
 export async function searchMovieById(id) {
-  const BASE_URL = 'https://api.themoviedb.org/3/movie/';
-  const searchParams = new URLSearchParams({
-    api_key: '6b2f249c49a040541fc751a7fb9d7fc1',
-  });
+  const endpoint = `/movie/${id}`;
+  const response = await axios.get(`${BASE_URL}${endpoint}?api_key=${API_KEY}`);
+  return response.data;
+}
 
-  const response = await axios.get(`${BASE_URL}/${id}?${searchParams}`);
+export async function searchMoviesByQuery(query) {
+  const endpoint = '/search/movie';
+  try {
+    const response = await axios.get(`${BASE_URL}${endpoint}?api_key=${API_KEY}&query=${query}`);
+    return response.data.results;
+  } catch (error) {
+    throw new Error("I'm sorry, but something went wrong... Please, try again later");
+  }
+}
+
+export async function getMovieCredits(id) {
+  const endpoint = `/movie/${id}/credits`;
+  const response = await axios.get(`${BASE_URL}${endpoint}?api_key=${API_KEY}`);
+  return response.data;
+}
+
+export async function getMovieReviews(id) {
+  const endpoint = `/movie/${id}/reviews`;
+  const response = await axios.get(`${BASE_URL}${endpoint}?api_key=${API_KEY}`);
   return response.data;
 }

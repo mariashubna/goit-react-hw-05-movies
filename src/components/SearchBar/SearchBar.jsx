@@ -33,7 +33,7 @@ export const SearchBar = () => {
 
   return (
     <>
-      <Formik initialValues={{ searchQuery: '' }} onSubmit={handleSearch}>
+      <Formik initialValues={{ searchQuery: '' }} onSubmit={handleSearch} >
         <Form className={css.form}>
           <Field
             value={query}

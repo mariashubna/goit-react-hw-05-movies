@@ -16,8 +16,12 @@ const Movies = ({ movies }) => {
         <li key={movie.id}>
           <Link to={`/movies/${movie.id}`} className={css.link}>
             <div>
-            <img
-              src={`${PICTURE_URL}w200${movie.poster_path}`}
+            <img className={css.poster}
+              src={
+                movie.poster_path
+                ? `${PICTURE_URL}w200${movie.poster_path}`
+                : 'https://img.freepik.com/premium-vector/iphone-mobile-wallpaper-abstract-background-design-background_684242-38.jpg'
+              }
               alt={movie.title}
             />
             </div>
