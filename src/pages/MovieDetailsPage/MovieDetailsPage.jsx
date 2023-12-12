@@ -3,6 +3,7 @@ import { Outlet, useLocation, useNavigate, useParams,  Link, NavLink } from 'rea
 import { searchMovieById } from '../../servises/search_Api';
 import { Loader } from '../../components/Loader/Loader';
 import Movies from '../../components/Movies/Movies';
+import css from './MovieDetailsPage.module.css'
 
 
 const MovieDetailsPage = () => {
@@ -33,22 +34,22 @@ const MovieDetailsPage = () => {
 
   return (
     <Fragment>
-      <Link to={state?.from ?? '/'}>Go back</Link>
+      <Link className={css.back} to={state?.from ?? '/'}>Go back</Link>
 
       {error === '' && movieData ? (
         <>
            <Movies movies={[movieData]} /> 
 
-          <div>
-            <h2>Additional information: </h2>
-            <ul>
-              <li>
-                <NavLink to="cast" state={{ from: state?.from }}>
+          <div className={css.wraper}>
+            <h2 >Additional information: </h2>
+            <ul className={css.list}>
+              <li className={css.item}>
+                <NavLink className={css.link} to="cast" state={{ from: state?.from }}>
                   Cast
                 </NavLink>
               </li>
-              <li>
-                <NavLink to="reviews" state={{ from: state?.from }}>
+              <li className={css.item}>
+                <NavLink className={css.link} to="reviews" state={{ from: state?.from }}>
                   Reviews
                 </NavLink>
               </li>

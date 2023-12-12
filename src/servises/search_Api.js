@@ -35,7 +35,7 @@ export async function getMovieCredits(id) {
   const endpoint = `/movie/${id}/credits`;
   try {
     const response = await axios.get(`${BASE_URL}${endpoint}?api_key=${API_KEY}`);
-    return response.data;
+    return response.data;  
   } catch (error) {
     throw new Error("I'm sorry, but something went wrong... Please, try again later");
   }

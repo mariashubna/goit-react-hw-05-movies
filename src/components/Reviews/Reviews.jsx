@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieReviews } from '../../servises/search_Api';
+import css from './Reviews.module.css'
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -32,19 +33,19 @@ const Reviews = () => {
 
   return (
     <div>
-      <h2>Movie Reviews</h2>
+      <h2 className={css.title}>Movie Reviews</h2>
       {reviews.length > 0 ? (
-        <ul>
+        <ul className={css.list}>
           {reviews.map((review) => (
-            <li key={review.id}>
+            <li className={css.item} key={review.id}>
               <h3>{review.author}</h3>
               <p>
                 {expandedReviews.includes(review.id)
                   ? review.content
-                  : `${review.content.slice(0, 500)}...`}
+                  : `${review.content.slice(0, 300)}...`}
               </p>
               {review.content.length > 500 && !expandedReviews.includes(review.id) && (
-                <button onClick={() => handleShowMore(review.id)}>
+                <button className={css.btn} onClick={() => handleShowMore(review.id)}>
                   Show more
                 </button>
               )}
