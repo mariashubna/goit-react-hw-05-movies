@@ -1,5 +1,5 @@
 import Movies from '../../components/Movies/Movies';
-import { Searchbar } from '../../components/Searchbar/Searchbar';
+import { SearchBar } from '../../components/SearchBar/SearchBar';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { searchTrendingMovies } from '../../servises/search_Api';
@@ -33,7 +33,7 @@ const MoviesPage = () => {
 
   return (
     <div>
-      <Searchbar />
+      <SearchBar />
       {error === '' ? <Movies movies={movies} /> : <p>{error}</p>}
     </div>
   );

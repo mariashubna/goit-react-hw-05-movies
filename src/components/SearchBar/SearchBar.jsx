@@ -2,8 +2,9 @@ import { Formik, Field, Form } from 'formik';
 import { BsSearch } from 'react-icons/bs';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import css from './SearchBar.module.css'
 
-export const Searchbar = () => {
+export const SearchBar = () => {
   const [query, setQuery] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
   const [error, setError] = useState('');
@@ -33,7 +34,7 @@ export const Searchbar = () => {
   return (
     <>
       <Formik initialValues={{ searchQuery: '' }} onSubmit={handleSearch}>
-        <Form>
+        <Form className={css.form}>
           <Field
             value={query}
             name="searchQuery"
@@ -44,7 +45,7 @@ export const Searchbar = () => {
             onChange={handleChange}
           />
 
-          <button type="submit">
+          <button type="submit" className={css.btn}>
             <BsSearch />
             <p>Search</p>
           </button>
