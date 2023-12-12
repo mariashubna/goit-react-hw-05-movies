@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import css from './ErrorPage.module.css'
 
 
 const ErrorPage = () => {
@@ -12,7 +13,7 @@ const ErrorPage = () => {
   }, [navigate]);
 
   return (
-    <div>
+    <div className={css.wraper}>
       I'm sorry. This page doesn't exist. You will be automatically
       redirected to Home page.
     </div>
