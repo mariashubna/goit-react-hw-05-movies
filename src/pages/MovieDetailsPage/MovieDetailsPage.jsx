@@ -34,7 +34,9 @@ const MovieDetailsPage = () => {
 
   return (
     <Fragment>
-      <Link className={css.back} to={state?.from ?? '/'}>Go back</Link>
+       <Link to={`/movies/${movieData.id}`} state={{ from: state }} className={css.link}>
+        Go back
+      </Link>
 
       {error === '' && movieData ? (
         <>
