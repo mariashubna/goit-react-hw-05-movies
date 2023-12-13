@@ -10,7 +10,7 @@ const Movies = ({ movies }) => {
     day: 'numeric',
   };
 
-  const { location } = useLocation();
+  const location = useLocation();
   return (
     <ul className={css.list}>
       {movies.map((movie) => (
