@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieCredits } from '../../servises/search_Api';
-import css from './Credits.module.css'
+import css from './Credits.module.css';
 
 const Credits = () => {
   const [credits, setCredits] = useState([]);
@@ -14,21 +14,23 @@ const Credits = () => {
     if (!movieId) {
       return;
     }
-  
+
     setLoading(true);
-  
+
     getMovieCredits(movieId)
-      .then((response) => {
+      .then(response => {
         if (!response || !response.cast.length) {
           setCredits([]);
-          setError("No credits found for this movie.");
+          setError('No credits found for this movie.');
         } else {
           setCredits(response.cast);
           setError('');
         }
       })
-      .catch((error) => {
-        setError("I'm sorry, but something went wrong... Please, try again later");
+      .catch(error => {
+        setError(
+          "I'm sorry, but something went wrong... Please, try again later"
+        );
       })
       .finally(() => {
         setLoading(false);
@@ -42,11 +44,11 @@ const Credits = () => {
       ) : error === '' ? (
         <div>
           <ul className={css.list}>
-            {credits.map((actor) => (
+            {credits.map(actor => (
               <li key={actor.id}>
                 <div>
                   <img
-                  className={css.img}
+                    className={css.img}
                     src={
                       actor.profile_path
                         ? `${PICTURE_URL}w200${actor.profile_path}`
@@ -68,4 +70,4 @@ const Credits = () => {
   );
 };
 
-export default Credits
+export default Credits;

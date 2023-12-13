@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieReviews } from '../../servises/search_Api';
-import css from './Reviews.module.css'
+import css from './Reviews.module.css';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -23,12 +23,14 @@ const Reviews = () => {
         setError('');
       })
       .catch(() =>
-        setError("I'm sorry, but something went wrong... Please, try again later")
+        setError(
+          "I'm sorry, but something went wrong... Please, try again later"
+        )
       );
   }, [movieId]);
 
-  const handleShowMore = (reviewId) => {
-    setExpandedReviews((prev) => [...prev, reviewId]);
+  const handleShowMore = reviewId => {
+    setExpandedReviews(prev => [...prev, reviewId]);
   };
 
   return (
@@ -36,7 +38,7 @@ const Reviews = () => {
       <h2 className={css.title}>Movie Reviews</h2>
       {reviews.length > 0 ? (
         <ul className={css.list}>
-          {reviews.map((review) => (
+          {reviews.map(review => (
             <li className={css.item} key={review.id}>
               <h3>{review.author}</h3>
               <p>
@@ -44,11 +46,15 @@ const Reviews = () => {
                   ? review.content
                   : `${review.content.slice(0, 300)}...`}
               </p>
-              {review.content.length > 500 && !expandedReviews.includes(review.id) && (
-                <button className={css.btn} onClick={() => handleShowMore(review.id)}>
-                  Show more
-                </button>
-              )}
+              {review.content.length > 500 &&
+                !expandedReviews.includes(review.id) && (
+                  <button
+                    className={css.btn}
+                    onClick={() => handleShowMore(review.id)}
+                  >
+                    Show more
+                  </button>
+                )}
             </li>
           ))}
         </ul>

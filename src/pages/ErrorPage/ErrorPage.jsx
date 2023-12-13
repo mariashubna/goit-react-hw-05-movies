@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import css from './ErrorPage.module.css'
-
+import css from './ErrorPage.module.css';
 
 const ErrorPage = () => {
   const navigate = useNavigate();
@@ -14,8 +13,8 @@ const ErrorPage = () => {
 
   return (
     <div className={css.wraper}>
-      I'm sorry. This page doesn't exist. You will be automatically
-      redirected to Home page.
+      I'm sorry. This page doesn't exist. You will be automatically redirected
+      to Home page.
     </div>
   );
 };

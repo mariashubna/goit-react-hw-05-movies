@@ -9,44 +9,57 @@ export async function searchTrendingMovies() {
   return response.data;
 }
 
-
-
 export async function searchMovieById(id) {
   try {
-    const response = await axios.get(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`);
+    const response = await axios.get(
+      `${BASE_URL}/movie/${id}?api_key=${API_KEY}`
+    );
     return response.data;
   } catch (error) {
-    throw new Error("I'm sorry, but something went wrong... Please, try again later");
+    throw new Error(
+      "I'm sorry, but something went wrong... Please, try again later"
+    );
   }
 }
-
 
 export async function searchMoviesByQuery(query) {
   const endpoint = '/search/movie';
   try {
-    const response = await axios.get(`${BASE_URL}${endpoint}?api_key=${API_KEY}&query=${query}`);
+    const response = await axios.get(
+      `${BASE_URL}${endpoint}?api_key=${API_KEY}&query=${query}`
+    );
     return response.data.results;
   } catch (error) {
-    throw new Error("I'm sorry, but something went wrong... Please, try again later");
+    throw new Error(
+      "I'm sorry, but something went wrong... Please, try again later"
+    );
   }
 }
 
 export async function getMovieCredits(id) {
   const endpoint = `/movie/${id}/credits`;
   try {
-    const response = await axios.get(`${BASE_URL}${endpoint}?api_key=${API_KEY}`);
-    return response.data;  
+    const response = await axios.get(
+      `${BASE_URL}${endpoint}?api_key=${API_KEY}`
+    );
+    return response.data;
   } catch (error) {
-    throw new Error("I'm sorry, but something went wrong... Please, try again later");
+    throw new Error(
+      "I'm sorry, but something went wrong... Please, try again later"
+    );
   }
 }
 
 export async function getMovieReviews(id) {
   const endpoint = `/movie/${id}/reviews`;
   try {
-    const response = await axios.get(`${BASE_URL}${endpoint}?api_key=${API_KEY}`);
+    const response = await axios.get(
+      `${BASE_URL}${endpoint}?api_key=${API_KEY}`
+    );
     return response.data;
   } catch (error) {
-    throw new Error("I'm sorry, but something went wrong... Please, try again later");
+    throw new Error(
+      "I'm sorry, but something went wrong... Please, try again later"
+    );
   }
 }
