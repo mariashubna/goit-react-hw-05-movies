@@ -46,12 +46,12 @@ const MovieDetailsPage = () => {
             <h2 >Additional information: </h2>
             <ul className={css.list}>
               <li className={css.item}>
-                <NavLink className={css.link} to="cast" state={{ from: state?.from }}>
+                <NavLink className={css.link} to="cast" >
                   Cast
                 </NavLink>
               </li>
               <li className={css.item}>
-                <NavLink className={css.link} to="reviews" state={{ from: state?.from }}>
+                <NavLink className={css.link} to="reviews" >
                   Reviews
                 </NavLink>
               </li>
