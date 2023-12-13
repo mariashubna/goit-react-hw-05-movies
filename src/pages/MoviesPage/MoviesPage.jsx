@@ -24,6 +24,7 @@ const MoviesPage = () => {
         setMovies(results);
         setError('');
       })
+      
       .catch(() =>
         setError(
           "I'm sorry, but something went wrong... Please, try again later"
