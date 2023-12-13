@@ -10,7 +10,7 @@ const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movieData, setMovieData] = useState(0);
   const [error, setError] = useState('');
-  const { location  } = useLocation();
+  const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
