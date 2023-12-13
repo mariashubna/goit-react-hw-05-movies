@@ -2,7 +2,7 @@ import Movies from '../../components/Movies/Movies';
 import { SearchBar } from '../../components/SearchBar/SearchBar';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { searchMoviesByQuery } from '../../servises/Search_Api';
+import { searchMoviesByQuery } from '../../servises/search_Api';
 
 const MoviesPage = () => {
   const [searchParams] = useSearchParams();
@@ -23,8 +23,7 @@ const MoviesPage = () => {
         }
         setMovies(results);
         setError('');
-      })
-      
+      })      
       .catch(() =>
         setError(
           "I'm sorry, but something went wrong... Please, try again later"

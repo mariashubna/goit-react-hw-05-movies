@@ -1,6 +1,6 @@
 import Movies from '../../components/Movies/Movies';
 import { useEffect, useState } from 'react';
-import { searchTrendingMovies } from '../../servises/Search_Api';
+import { searchTrendingMovies } from '../../servises/search_Api';
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
