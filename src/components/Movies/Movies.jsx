@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import css from './Movies.module.css'
 
 const Movies = ({ movies }) => {
@@ -10,12 +10,12 @@ const Movies = ({ movies }) => {
     day: 'numeric',
   };
 
-
+  const { location } = useLocation();
   return (
     <ul className={css.list}>
       {movies.map((movie) => (
         <li key={movie.id}>
-          <Link to={`/movies/${movie.id}`} className={css.link}>
+          <Link to={`/movies/${movie.id}`} state={{from: location}} className={css.link}>
             <div>
             <img className={css.poster}
               src={

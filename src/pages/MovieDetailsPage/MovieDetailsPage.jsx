@@ -10,7 +10,7 @@ const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movieData, setMovieData] = useState(0);
   const [error, setError] = useState('');
-  const { location } = useLocation();
+  const { location  } = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -34,9 +34,9 @@ const MovieDetailsPage = () => {
 
   return (
     <Fragment>
-       <Link to={`/movies/${movieData.id}`} state={{ from: { location } }} className={css.link}>
-  Go back
-</Link>
+       <Link to={`/movies/${movieData.id}`} state={{ from: location }} className={css.link}>
+      Go back
+    </Link>
 
       {error === '' && movieData ? (
         <>
