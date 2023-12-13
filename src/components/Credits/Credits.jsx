@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getMovieCredits } from '../../servises/search_Api';
+import { getMovieCredits } from '../../servises/Search_Api';
 import css from './Credits.module.css';
 
 const Credits = () => {

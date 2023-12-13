@@ -7,7 +7,7 @@ import {
   Link,
   NavLink,
 } from 'react-router-dom';
-import { searchMovieById } from '../../servises/search_Api';
+import { searchMovieById } from '../../servises/Search_Api';
 import { Loader } from '../../components/Loader/Loader';
 import Movies from '../../components/Movies/Movies';
 import css from './MovieDetailsPage.module.css';
